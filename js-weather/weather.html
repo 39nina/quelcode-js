@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>世界各地の天気</title>
+</head>
+<body>
+<h1>世界各地の天気</h1>
+<select name="weather" id="select">
+    <option value="London,uk" selected>ロンドン</option>
+    <option value="Tokyo,japan">東京</option>
+    <option value="Paris,franch">パリ</option>
+    <option value="New%20York,US">ニューヨーク</option>
+    <option value="indonesia">インドネシア</option>
+</select>
+<script>
+    const request = new XMLHttpRequest();
+
+    const getdata = function() {
+        // プルダウンで選択した都市名を取得
+        const city = document.getElementById("select").value;
+
+        // 選択した都市データを参照
+        request.open ('GET', 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=4b5774e9f3d2a07b84f0f2f88e486224', true);
+        request.responseType = 'json';
+
+        request.send();
+
+        request.onload = function() {
+            const data = this.response;
+            console.log(data);
+        };
+    }
+
+    // 初期状態で選択されているロンドンの内容を表示
+    getdata();
+
+    // プルダウンが変更される都度表示を変更
+    document.getElementById("select").onchange = function() {
+        getdata();
+    };
+</script>
+</body>
+</html>
