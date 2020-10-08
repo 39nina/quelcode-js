@@ -20,6 +20,7 @@ const getdata = function() {
         const lowtemp = data["main"]["temp_min"];
         document.getElementById("city").innerHTML = name;
         document.getElementById("weather").innerHTML = weather;
+        document.getElementById("icon").innerHTML = `<img src="https://openweathermap.org/img/wn/${weather2}.png" alt="${weather}; ?>">`;
         document.getElementById("hightemp").innerHTML = ((Math.round((hightemp - 273.15)*10)/10).toFixed(1)) + "℃";
         document.getElementById("lowtemp").innerHTML = ((Math.round((lowtemp - 273.15)*10)/10).toFixed(1)) + "℃";
     };

@@ -67,7 +67,7 @@ table {
 div {
     margin-top: 20px;
     padding:15px;
-    width: 450px;
+    width: 510px;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid #000;
@@ -88,5 +88,10 @@ td {
     text-align : center;
     width: 150px;
     vertical-align: middle;
+}
+
+.icon {
+  width: 50px;
+  text-align: left;
 }
 
